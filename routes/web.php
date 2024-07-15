@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -14,12 +15,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/home', function(){
-    return inertia::render('Hompage', [
-        'title' => 'ArkhaNews Home',
-        'description' => 'portal berita arkhanews'
-    ]);
-});
+Route::get('/', [NewsController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
