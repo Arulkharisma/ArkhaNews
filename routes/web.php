@@ -15,11 +15,14 @@ Route::get('/welcome', function () {
     ]);
 });
 
-Route::get('/', [NewsController::class, 'index']);
 
+Route::get('/', [NewsController::class, 'index']);
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/category/{category}', [NewsController::class, 'showByCategory'])->name('news.byCategory');
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
