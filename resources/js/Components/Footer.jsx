@@ -1,7 +1,7 @@
 const Footer = () =>{
     return(
         <footer className="bg-[#1f2937] w-full max-[833px]:">
-            <div className="text-white flex justify-center mx-24 gap-24 py-12 max-[816px]:gap-10 max-[650px]:flex-col max-[800px]:flex-wrap max-[400px]:mx-15">
+            <div className="text-white flex mx-24 gap-24 py-12 max-[816px]:gap-10 max-[650px]:mx-16 max-[650px]:gap-8 max-[650px]:flex-row max-[800px]:flex-wrap max-[400px]:mx-15">
                 <div className="flex flex-col gap-4 max-w-xl">
                     <img src="/logo-white.png" width="50px" alt="logo arkhanews" />
                     <h1 className="font-bold">Arkha News</h1>
@@ -42,7 +42,7 @@ const Footer = () =>{
                 </div>
             </div>
             </div>
-            <div className="mx-24 text-white">
+            <div className="mx-24 text-white max-[650px]:mx-16">
                 <hr className="border"/>
                 <p className="text-center pb-12 mt-3">copyright &copy; 2024 - Arul Kharisma</p>
             </div>
