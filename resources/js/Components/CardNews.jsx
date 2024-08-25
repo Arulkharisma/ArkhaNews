@@ -8,8 +8,8 @@ const CardNews = ({newslist, tag}) => {
             {newslist ? newslist.map((data, i) => {
                 return (
                     <Link href={`/news/${data.id}`} key={i}>
-                        <div className="min-w-72  rounded-lg shadow-md bg-[#f0f5fd] max-sm:min-w-56 cursor-pointer" key={i}>
-                            <img src="/sample2.webp" alt="gambar news" className="rounded-t-lg" />
+                        <div className="max-w-80 rounded-xl shadow-md bg-[#f0f5fd] cursor-pointer" key={i}>
+                            <img src={`/storage/${data.image_path}`} alt="News Image" className="rounded-t-xl w-full object-cover h-60"/>
                             <div className="py-4 px-5">
                             <p className="text-xl text font-bold text-center mb-6 line-clamp-2 hover:line-clamp-none">{data.title}</p>
                             {/* <p className="font-extralight mb-3">{data.author}</p> */}
