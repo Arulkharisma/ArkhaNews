@@ -15,8 +15,8 @@ export default function Authenticated({ user, header, children }) {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                <Link href="/" className='btn btn-ghost text-xl'>
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />ArkhaNews
                                 </Link>
                             </div>
 
