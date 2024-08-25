@@ -4,3 +4,14 @@
 # Portal Berita
 
 Proyek ini adalah aplikasi portal berita yang dibangun menggunakan Laravel untuk backend dan React untuk frontend. Tujuan dari proyek ini adalah untuk menyediakan platform berita yang interaktif dan mudah digunakan, di mana pengguna dapat membaca, mencari, dan berinteraksi dengan berbagai berita yang tersedia.
+
+## Instalasi
+1. npm install
+2. composer install
+3. php artisan migrate
+
+## Run App
+1. npm run dev
+2. php artisan serve
+
+jangan lupa sesuaikan db_user dan db_password🙂
