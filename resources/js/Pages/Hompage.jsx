@@ -9,7 +9,7 @@ export default function Hompage(props) {
     console.log(props)
     return (
         <div className="scroll-smooth ">
-            <Navbar />
+            <Navbar user={props.auth.user} />
             <div className="flex gap-2 bg-[#E4EFFF] h-screen px-24 bg bg-[url('/hero-icon.png')] bg-[length:800px_800px] bg-no-repeat bg-left mt-16 max-[850px]:px-10">
                 <div className="w-8/12 flex flex-col justify-center max-[620px]:w-full">
                     <h3 className="font-thin border-l-2 border-[#1f2937] px-2 bg-gradient-to-r from-slate-100 to-slate-500 w-fit">Best Of Week</h3>
