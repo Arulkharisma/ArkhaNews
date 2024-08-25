@@ -1,12 +1,13 @@
 import { Link } from "@inertiajs/react";
 import { useState } from "react";
 import { RiMenu3Fill } from "react-icons/ri";
+import ResponsiveNavLink from "./ResponsiveNavLink";
 
-const Navbar = () => {
-
+const Navbar = ({ user }) => {
+    console.log(user)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    const toggleMenu = () =>{
+    const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
@@ -30,7 +31,7 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><a>Contant</a></li>
+                        <li><Link>Contant</Link></li>
                     </ul>
                 </div>
                 <div className="flex-none gap-3 max-[813px]:hidden">
@@ -58,14 +59,23 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            {!user ?
+                                <>
+                                    <li><Link href={route('login')} as="button">Login</Link></li>
+                                    <li><Link href={route('register')} as="button">Register</Link></li>
+                                </>
+                                :
+                                <>
+                                    <li>
+                                        <Link href={route('dashboard')} as="button" className="justify-between">
+                                            Dashboard
+                                            <span className="badge">New</span>
+                                        </Link>
+                                    </li>
+                                    <li><Link>Profile</Link></li>
+                                    <li><Link method="post" href={route('logout')} as="button">Logout</Link></li>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -74,7 +84,7 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-             {isMenuOpen && (
+            {isMenuOpen && (
                 <div className="bg-[#cfdef5] p-4 fixed w-full z-50">
                     <ul className="menu menu-vertical p-2">
                         <li><Link href="/">Home</Link></li>
@@ -89,7 +99,7 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><a>Contact</a></li>
+                        <li><Link>Contact</Link></li>
                     </ul>
                     <div className="flex-none justify-between gap-3 px-5">
                         <div className="form-control">
@@ -116,14 +126,23 @@ const Navbar = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                 {!user ?
+                                <>
+                                    <li><Link href={route('login')} as="button">Login</Link></li>
+                                    <li><Link href={route('register')} as="button">Register</Link></li>
+                                </>
+                                :
+                                <>
+                                    <li>
+                                        <Link href={route('dashboard')} as="button" className="justify-between">
+                                            Dashboard
+                                            <span className="badge">New</span>
+                                        </Link>
+                                    </li>
+                                    <li><Link>Settings</Link></li>
+                                    <li><Link method="post" href={route('logout')} as="button">Logout</Link></li>
+                                </>
+                            }
                             </ul>
                         </div>
                     </div>

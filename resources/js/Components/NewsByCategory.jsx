@@ -2,12 +2,12 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Link } from "@inertiajs/react";
 
-const NewsByCategory = ({ news, title }) => {
-    console.log(news)
+const NewsByCategory = ({ news, title, auth }) => {
+    console.log(auth)
     return (
         <>
-            <Navbar />
-            <div className="mx-24 py-24 mt-16 max-[720px]:mx-10 max-[345px]:mx-5">
+            <Navbar user={auth}/>
+            <div className="mx-24 py-14 mt-16 max-[720px]:mx-10 max-[345px]:mx-5">
                 <h1 className="text-3xl font-bold mb-4 text-center">{title}</h1>
                 <div className="flex gap-4 justify-center flex-wrap">
                     {news.data.length > 0 ? news.data.map((item) => (
