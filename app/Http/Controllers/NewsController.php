@@ -30,7 +30,6 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-
         if (!$news) {
             // Redirect atau tampilkan pesan error jika berita tidak ditemukan
             return redirect()->route('home')->with('error', 'News not found');
@@ -38,6 +37,7 @@ class NewsController extends Controller
 
         return Inertia::render('NewsDetail', [
             'news' => $news,
+            'auth' => auth()->user(),
         ]);
     }
 
@@ -49,7 +49,8 @@ class NewsController extends Controller
         // Mengirimkan data ke Inertia
         return inertia('NewsByCategory', [
             'title' => ucfirst($category),
-            'news' => $news
+            'news' => $news,
+            'auth' => auth()->user(),
         ]);
     }
     
@@ -67,7 +68,32 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'author' => 'required|string',
+            'category' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',  // Validasi untuk file image
+        ]);
+
+        // Proses upload image
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('news_images', 'public');  // Menyimpan image di storage/public/news_images
+        }
+
+        // Simpan data ke dalam database
+        $news = new News();
+        $news->title = $request->input('title');
+        $news->description = $request->input('description');
+        $news->author = $request->input('author');
+        $news->category = $request->input('category');
+        $news->image_path = $imagePath;  // Simpan path image ke dalam kolom image_path
+        $news->save();
+
+        return response()->json(['message' => 'News created successfully']);
     }
 
     /**
