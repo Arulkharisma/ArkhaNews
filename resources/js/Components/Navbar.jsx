@@ -31,7 +31,7 @@ const Navbar = ({ user }) => {
                                 </ul>
                             </details>
                         </li>
-                        <li><Link>Contant</Link></li>
+                        <li><a href="https://www.linkedin.com/in/arulkharisma/" target="_blank" rel="noopener noreferrer">Contact</a></li>
                     </ul>
                 </div>
                 <div className="flex-none gap-3 max-[813px]:hidden">
@@ -102,7 +102,7 @@ const Navbar = ({ user }) => {
                                 </ul>
                             </details>
                         </li>
-                        <li><Link>Contact</Link></li>
+                        <li><a href="https://www.linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer">Contact</a></li>
                     </ul>
                     <div className="flex-none justify-between gap-3 px-5">
                         <div className="form-control">
