@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import moment from "moment";
 import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { CiShare2 } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
@@ -15,7 +16,7 @@ const NewsDetail = ({ news, auth }) => {
             <div className="mx-96 my-[4.5rem] pt-8 max-sm:mx-12 max-md:mx-20 max-lg:mx-28 max-[463px]:mx-12 max-[640px]:mx-20">
                 <h1 className="text-3xl font-bold mb-4 text-center">{news.title}</h1>
                 <img src={`/storage/${news.image_path}`} alt="News Image" className="m-auto rounded-xl mt-7 mb-3"/>
-                <p className="text-gray-600 mb-4 text-center">Category: {news.category}</p>
+                <p className="text-gray-600 mb-4 text-center">{moment(news.created_at).fromNow()} | Category: {news.category} </p>
                 <p dangerouslySetInnerHTML={{ __html: news.description }} className="text-lg"></p>
                 <p className="mt-10 font-extrabold">Penulis: {news.author}</p>
                 <div className="fixed top-1/3 left-0" >

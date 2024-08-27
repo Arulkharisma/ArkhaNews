@@ -4,7 +4,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import ResponsiveNavLink from "./ResponsiveNavLink";
 
 const Navbar = ({ user }) => {
-    console.log(user)
+    // console.log(user)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => {
@@ -66,13 +66,16 @@ const Navbar = ({ user }) => {
                                 </>
                                 :
                                 <>
-                                    <li>
-                                        <Link href={route('dashboard')} as="button" className="justify-between">
-                                            Dashboard
-                                            <span className="badge">New</span>
-                                        </Link>
-                                    </li>
-                                    <li><Link>Profile</Link></li>
+                                    {/* Tampilkan link Dashboard hanya jika user adalah admin */}
+                                    {user.name === 'admin' && (
+                                        <li>
+                                            <Link href={route('dashboard')} as="button" className="justify-between">
+                                                Dashboard
+                                                <span className="badge">New</span>
+                                            </Link>
+                                        </li>
+                                    )}
+                                    <li><Link as="button">Profile</Link></li>
                                     <li><Link method="post" href={route('logout')} as="button">Logout</Link></li>
                                 </>
                             }
@@ -126,23 +129,26 @@ const Navbar = ({ user }) => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                 {!user ?
-                                <>
-                                    <li><Link href={route('login')} as="button">Login</Link></li>
-                                    <li><Link href={route('register')} as="button">Register</Link></li>
-                                </>
-                                :
-                                <>
-                                    <li>
-                                        <Link href={route('dashboard')} as="button" className="justify-between">
-                                            Dashboard
-                                            <span className="badge">New</span>
-                                        </Link>
-                                    </li>
-                                    <li><Link>Settings</Link></li>
-                                    <li><Link method="post" href={route('logout')} as="button">Logout</Link></li>
-                                </>
-                            }
+                                {!user ?
+                                    <>
+                                        <li><Link href={route('login')} as="button">Login</Link></li>
+                                        <li><Link href={route('register')} as="button">Register</Link></li>
+                                    </>
+                                    :
+                                    <>
+                                        {/* Tampilkan link Dashboard hanya jika user adalah admin */}
+                                        {user.name === 'admin' && (
+                                            <li>
+                                                <Link href={route('dashboard')} as="button" className="justify-between">
+                                                    Dashboard
+                                                    <span className="badge">New</span>
+                                                </Link>
+                                            </li>
+                                        )}
+                                        <li><Link as="button">Profile</Link></li>
+                                        <li><Link method="post" href={route('logout')} as="button">Logout</Link></li>
+                                    </>
+                                }
                             </ul>
                         </div>
                     </div>

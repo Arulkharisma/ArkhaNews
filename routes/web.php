@@ -29,9 +29,8 @@ Route::post('/news/update/{id}', [NewsController::class, 'update'])
     ->name('update.news');
 
 
-Route::get('/', [NewsController::class, 'index']);
+Route::get('/', [NewsController::class, 'index'])->name('hompage');
 // ->middleware(['auth', 'verified'])
-// ->name('hompage');
 
 
 Route::get('/dashboard', [NewsController::class, 'dashboard'])

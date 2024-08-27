@@ -8,12 +8,12 @@ const CardNews = ({newslist, tag}) => {
             {newslist ? newslist.map((data, i) => {
                 return (
                     <Link href={`/news/${data.id}`} key={i}>
-                        <div className="max-w-80 rounded-xl shadow-md bg-[#f0f5fd] cursor-pointer" key={i}>
+                        <div className="w-64 rounded-xl shadow-md bg-[#f0f5fd] cursor-pointer" key={i}>
                             <img src={`/storage/${data.image_path}`} alt="News Image" className="rounded-t-xl w-full object-cover h-60"/>
                             <div className="py-4 px-5">
-                            <p className="text-xl text font-bold text-center mb-6 line-clamp-2 hover:line-clamp-none">{data.title}</p>
+                            <p className="text-xl text font-bold text-center mb-6 line-clamp-2 hover:line-clamp-none max-[700px]:mb-3">{data.title}</p>
                             {/* <p className="font-extralight mb-3">{data.author}</p> */}
-                            <p className="mb-3 line-clamp-5">{data.description}</p>
+                            <p className="mb-3 line-clamp-5 max-[700px]:line-clamp-2">{data.description}</p>
                             <p className="font-extralight">Category: {data.category}</p>
                             </div>
                         </div>

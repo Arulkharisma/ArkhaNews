@@ -13,7 +13,7 @@ const NewsByCategory = ({ news, title, auth }) => {
                     {news.data.length > 0 ? news.data.map((item) => (
                         <div key={item.id} className="w-64 rounded-lg shadow-md bg-[#f0f5fd] hover:scale-105 transition-all duration-300 max-[608px]:w-52 max-[512px]:w-72">
                             <Link href={`/news/${item.id}`} className="cursor-pointer "> 
-                                <img src="/sample2.webp" className="rounded-t-lg" alt="" />
+                                <img src={`/storage/${item.image_path}`} className="rounded-t-lg" alt="" />
                                 <div className="p-4">
                                     <h2 className="text-xl font-bold line-clamp-2">{item.title}</h2>
                                     <p className="mb-3 line-clamp-4">{item.description}</p>
