@@ -14,4 +14,8 @@ Proyek ini adalah aplikasi portal berita yang dibangun menggunakan Laravel untuk
 1. npm run dev
 2. php artisan serve
 
+### Admin
+1. username : admin@gmail.com
+2. password : 12345678
+
 jangan lupa sesuaikan db_user dan db_password🙂
