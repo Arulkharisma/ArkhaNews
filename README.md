@@ -9,14 +9,14 @@ Proyek ini adalah aplikasi portal berita yang dibangun menggunakan Laravel untuk
 #### ikuti langkah-langkah ini dengan urut
 1. npm install
 2. composer install
-3. cp .env.example .env (run diterminal)-> setelah dirun akan muncul file .env
+3. <b>cp .env.example .env</b> (run diterminal)-> setelah dirun akan muncul file .env
    - buka file .env dan sesuaikan dengan database temen-temen, contohnya seperti gambar dibawah
    -  ![image](https://github.com/user-attachments/assets/60525c94-c41e-4ded-88dc-71472007cd11)
 4. setelah itu import database yang ada di file import_database
    - ![image](https://github.com/user-attachments/assets/06060adf-38f6-4b88-a7fc-33e1a721c056)
-5. setelah itu jalankan perintah -> php artisan key:generate
-6. kemudian lanjut jalankan perintah -> php artisan migrate
-7. dan terakhir jalankan perintah --> php artisan storage:link
+5. setelah itu jalankan perintah -> <b>php artisan key:generate</b>
+6. kemudian lanjut jalankan perintah -> <b>php artisan migrate</b>
+7. dan terakhir jalankan perintah --> <b>php artisan storage:link</b>
 
 ## Run App
 ### untuk menjalankan project ini jalankan kedua perintah ini.
