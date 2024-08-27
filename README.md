@@ -28,4 +28,4 @@ Proyek ini adalah aplikasi portal berita yang dibangun menggunakan Laravel untuk
 1. username : admin@gmail.com
 2. password : 12345678
 
-jangan lupa sesuaikan db_user dan db_password🙂
+🙂🙂🙂🙂🙂
